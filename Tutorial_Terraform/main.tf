@@ -1,5 +1,5 @@
 terraform {
-  required_providers {
+  required_providers {    #dépendances
     docker = {
       source  = "kreuzwerker/docker"
       version = "~> 3.0.1"
@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "docker" {
-  host = "npipe:////.//pipe//docker_engine"
+  host = "npipe:////.//pipe//docker_engine" #lien pour connecter à docker desktop
 }
 
 resource "docker_image" "nginx" { #docker_image.nginx est l'ID de la ressource
