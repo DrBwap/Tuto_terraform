@@ -100,7 +100,7 @@ Inputs & Outputs beaches!
 
 Si on veut ajouter des variables, des inputs, outputs, on peut créer des fichiers .tf, ou l'ajouter au main (j'imagine que c'est relativement déconseillé par soucis de clareté)
 
-Exemple: 
+Exemple: Utilisation d'une variable pour un input
 
 variable "container_name" {
   description = "Value of the name for the Docker container"
@@ -108,3 +108,35 @@ variable "container_name" {
   default     = "ExampleNginxContainer"
 }
 
+Il faut cependant mettre à jour le main.tf pour utiliser la variable:
+
+    - name = "tutorial"             #nom par défaut
+    + name = var.container_name     #nom de la variable
+
+Ensuite on peut modifier cette variable grace à la commande:
+
+    terraform apply -var "container_name=UnAutreNom"
+
+Exemples: Afficher un output:
+
+output "container_id" {
+  description = "ID of the Docker container"
+  value       = docker_container.nginx.id
+}
+
+output "image_id" {
+  description = "ID of the Docker image"
+  value       = docker_image.nginx.id
+}
+
+Après avoir apply cette partie, il va renvoyer:
+
+Outputs:
+container_id = ....
+image_id = ....
+
+Et grace à la commande:
+
+    terraform output
+
+On obtient le même affichage.
