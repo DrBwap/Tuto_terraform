@@ -10,7 +10,7 @@ ________________________________________________
 Installation:
 
 Pour l'installer: https://developer.hashicorp.com/terraform/tutorials/docker-get-started/install-cli
-Note: pour plus de simplicité, on a installé un truc au chocolat, comme quoi c'est vraiment trop bon.
+Note: pour plus de simplicité, on a installé un truc au chocolat, comme quoi c'est vraiment trop bon. https://chocolatey.org/install
 
 Le langage utilisé est JSON ou HCL (HashiCorp Configuration Language)
 
