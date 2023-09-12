@@ -50,29 +50,29 @@ terraform {
   }
 }
 
-# Définit le fournisseur Docker avec l'adresse du moteur Docker.
+#### Définit le fournisseur Docker avec l'adresse du moteur Docker.
 provider "docker" {
   host = "npipe:////.//pipe//docker_engine"
 }
 
-# Définit une ressource pour l'image Docker NGINX à utiliser.
+#### Défini une ressource pour l'image Docker NGINX à utiliser.
 resource "docker_image" "nginx" {
-  # Spécifie le nom de l'image Docker à utiliser.
+  #### Spécifie le nom de l'image Docker à utiliser.
   name         = "nginx"
-  # Indique si l'image doit être conservée localement ou non.
+  #### Indique si l'image doit être conservée localement ou non.
   keep_locally = false
 }
 
-# Définit une ressource pour le conteneur Docker NGINX.
+### Définit une ressource pour le conteneur Docker NGINX.
 resource "docker_container" "nginx" {
-  # Spécifie l'ID de l'image Docker à utiliser pour le conteneur.
+  #### Spécifie l'ID de l'image Docker à utiliser pour le conteneur.
   image = docker_image.nginx.image_id
-  # Utilise une variable pour spécifier le nom du conteneur.
+  #### Utilise une variable pour spécifier le nom du conteneur.
   name  = var.container_name
 
-  # Configure les ports du conteneur Docker.
+  #### Configure les ports du conteneur Docker.
   ports {
-    # Port interne du conteneur (dans le conteneur lui-même).
+    #### Port interne du conteneur (dans le conteneur lui-même).
     internal = 80
     # Port externe sur la machine hôte (sur lequel le conteneur sera accessible).
     external = 8080
