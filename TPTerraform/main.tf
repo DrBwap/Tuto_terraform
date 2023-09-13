@@ -28,7 +28,6 @@ resource "docker_container" "controller" { #docker_container.nginx est l'ID de l
   volumes {
     volume_name = "shared_volume"
     container_path = "/shared_files"
-    host_path = "C:\\Users\\Administrateur\\Tuto_terraform\\TPTerraform\\shared_files"
     }
 
   networks_advanced {
@@ -45,7 +44,6 @@ resource "docker_container" "managed_container" { #docker_container.nginx est l'
   volumes {
     volume_name = "shared_volume"
     container_path = "/shared_files"
-    host_path = "C:\\Users\\Administrateur\\Tuto_terraform\\TPTerraform\\shared_files"
   }
 
   ports {                             #not really necessary until we want to call it from the web
